@@ -34,6 +34,9 @@ grails.mime.types = [ // the first one is the default format
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
+//dont show app-name in url but begin with root "/"
+grails.app.context="/"
+
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
 
