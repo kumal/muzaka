@@ -54,6 +54,9 @@ grails.project.dependency.resolution = {
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
 		
 		compile 'org.jsoup:jsoup:1.8.1'
+		
+		compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.23'
+		
     }
 
     plugins {

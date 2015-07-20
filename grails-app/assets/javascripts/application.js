@@ -11,6 +11,7 @@
 //= require util
 //= require soundmanager2
 //= require page-player
+//= require analytics
 //= require_tree .
 //= require_self
 

@@ -21,4 +21,8 @@ class SearchController {
 		
 		render (view:'result', model: [songList: songList])
 	}
+	
+	def oauth2callback(){
+		
+	}
 }
