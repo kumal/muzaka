@@ -7,7 +7,10 @@ class SearchController {
 	
 	MusicService musicService
 	
-    def index() { }
+    def index() { 
+		
+		
+	}
 	
 	def search(){
 		

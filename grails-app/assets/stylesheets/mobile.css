@@ -1,0 +1,20 @@
+/* Styles for mobile devices */
+
+
+/* Hide individual steps in pagination, just have next & previous */
+	.pagination .step, .pagination .currentStep {
+		display: none;
+	}
+
+	.pagination .prevLink {
+		float: left;
+	}
+
+	.pagination .nextLink {
+		float: right;
+	}
+
+	/* pagination needs to wrap around floated buttons */
+	.pagination {
+		overflow: hidden;
+	}

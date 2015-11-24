@@ -2,6 +2,7 @@ package com.kmal.muzaka.service
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import muzaka.Song
 
 import com.kmal.muzaka.dto.SongResultDTO;
 import com.kmal.muzaka.engine.SearchEngine;
@@ -15,16 +16,28 @@ class MusicService {
   	
 	def performSearch(String searchString){
 		SearchEngine se = new SearchEngine();
-		ArrayList<HashMap<String, String>> results = se.iterateThroughPage(searchString)
-		ArrayList<SongResultDTO> songList = this.makeSongList(results)
+		List<HashMap<String, String>> results = se.iterateThroughPage(searchString)
+		List<SongResultDTO> songList = this.makeSongList(results,false)
 		return songList
 	}
 	
-	def makeSongList(ArrayList<HashMap<String, String>> mlist){
-		SearchEngine se = new SearchEngine();
-		
-		ArrayList<SongResultDTO> songList = new ArrayList<SongResultDTO>();
 	
+	def performTopTitles(String searchString){
+		SearchEngine se = new SearchEngine();
+		ArrayList<HashMap<String, String>> results = se.iterateThroughPage(searchString)
+		ArrayList<Song> songList = this.makeSongList(results,true)
+		return songList
+	}
+	
+	def makeSongList(ArrayList<HashMap<String, String>> mlist, boolean topTitle){
+		SearchEngine se = new SearchEngine();
+		def songList
+		
+		if(topTitle){
+			songList = new ArrayList<Song>();
+		}else{
+			songList = new ArrayList<SongResultDTO>();
+		}
 		
 		for (int i = 0; i<mlist.size();i++ ) {
 			
@@ -34,11 +47,15 @@ class MusicService {
 			while (it.hasNext()) {
 				String songName = (String)it.next();
 				String songUrl = (String) tmpData.get(songName);
-				
+				def songDto
 				//System.out.println("Key: "+songName +" & Data: "+songUrl);
 				if(!songUrl.equalsIgnoreCase("#")){
 					//saveMp3(songName, songUrl);
-					SongResultDTO songDto  = new SongResultDTO(songName: songName,url:songUrl)						
+					if(topTitle){
+						songDto  = new Song(songName: songName,url:songUrl)	
+					}else{
+						songDto  = new SongResultDTO(songName: songName,url:songUrl)
+					}
 					songList.add(songDto);
 				}
 				it.remove(); // avoids a ConcurrentModificationException

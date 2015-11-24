@@ -19,8 +19,24 @@
 	
 	</head>
 	<body>
+	
+		<!-- Header -->
+		<div id="header">
 		
-		<g:layoutBody/>
+			<span class="icon">			
+			<asset:image src="logo.png" />
+			</span>
+			<h1>Welcome to Muzaka.</h1>
+			<p>The Albanian Search Engine for Music.
+			<br />
+			Please look for an Albanian song of your desire.</p>			
+
+		</div>
+		
+		<!-- Main -->
+		<div id="main">
+			<g:layoutBody/>
+		</div>
 		
 		
 		<!-- Footer -->

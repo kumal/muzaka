@@ -37,11 +37,15 @@ public class SearchEngine {
 
 	
 	public static ArrayList<HashMap<String, String>> iterateThroughPage(String searchString) throws IOException{
-		
+		String url = "";
 		//System.setProperty("http.proxyHost", "proxy.muc");
 	//	System.setProperty("http.proxyPort", "8080");
+		if(searchString.startsWith("http://www.zbavitu.me")){
+			url = searchString; 
+		}else{
+			url = "http://www.zbavitu.me/mp3/?search="+searchString;
 		
-		String url = "http://www.zbavitu.me/mp3/?search="+searchString;
+		}
 		//String url = "http://get-tune.net/?a=music&q="+searchString;
 		String provider = "http://www.zbavitu.me/mp3/";
 		//String provider = "";

@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+		"/"(controller:"index") // instead of linking the root to (view:"/index")
         "500"(view:'/error')
 	}
 }
