@@ -25,7 +25,7 @@
 				</header>
 			<div class="box container">
 				<header>
-					<h3>Search for your favourite Song</h3>
+					<h3>Search for your favourite Song</h3> 
 				</header>
 				<g:formRemote name="searchForm" id="searchForm" url="[controller: 'search', action:'search']" update="result">
 					<div class="row">
